@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>iradio</title>
+	<link rel="stylesheet" href="css/style.css" />
+	<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-1.8.9.custom.min.js"></script>
+	<script type="text/javascript" src="js/jquery.iswitch.js"></script>
+</head>
+<body>
+	<a href="http://github.com/vxsx" id="github"><span>Fork me on GitHub</span><span>Be nice!</span></a>
+	
+	
+	<script type="text/javascript">
+		$(function() {
+			$(':radio[name="iradio"]').iradio().change(function(){
+				var newtext = $('label[for="'+$(this).attr('id')+'"]').text();
+				
+				$('.knob').animate({'left':$('label[for="'+$(this).attr('id')+'"]').position().left}, 200)
+				$('.knob span').animate({'opacity':'0.5'}, 100, function() {
+
+					$(this).text(newtext);
+					$(this).animate({'opacity':'1'}, 100)
+				})
+			});
+		})
+	</script>
+	
+	
+	<fieldset id="inside">
+		<div class="iradio-wrap">
+			<input type="radio" name="iradio" id="radio1" value="One" checked="checked" /> <label for="radio1">One</label>
+			<input type="radio" name="iradio" id="radio2" value="Two" /> <label for="radio2">Two</label>
+			<input type="radio" name="iradio" id="radio3" value="Three" /> <label for="radio3">Three</label>
+			<div class="knob"><span>One</span></div>
+		</div>
+	</fieldset>
+
+</body>
+</html>
