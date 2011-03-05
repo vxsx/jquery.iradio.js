@@ -112,9 +112,6 @@ fieldset {
 
 
 
-input[type="radio"] {
-	display: none;
-}
 
 .iradio-wrap {
 	display: inline-block;
@@ -122,9 +119,10 @@ input[type="radio"] {
 	overflow: hidden;
 	
 	.border-radius(5px);
-	.linear-gradient( #7e7e7e, #d0d0d0);
+	.linear-gradient( fadeout(#7e7e7e, 80%), fadeout(#d0d0d0, 80%));
 
 	-webkit-box-shadow: 0px 1px 0px #d0d0d0, 0px 2px 3px rgba(0,0,0,0.3) inset;//TODO
+	border: 1px solid fadeout(#979797, 60%);
 	
 	label {
 		display: inline-block;
@@ -132,8 +130,8 @@ input[type="radio"] {
 		text-align: center;
 		color: #232323;
 		text-shadow: 1px 1px 0px rgba(255,255,255,0.5);
-		width: 100px;
-
+	//	width: 100px;
+		cursor: pointer;
 	}
 	
 	.knob {
@@ -143,8 +141,13 @@ input[type="radio"] {
 		position: absolute;
 		.border-radius(4px);
 		top:0;
-		width: 100px;
+	//	width: 100px;
 		border: 1px solid #868686;
 		-webkit-box-shadow: 0px 0px 3px rgba(0,0,0,0.3);	
+		
+		span {
+			cursor: default;
+			-webkit-user-select: none;
+		}
 	}
 }

@@ -75,9 +75,6 @@ fieldset {
   -webkit-transform: rotatex(360deg);
   -moz-transform: rotatex(360deg);
 }
-input[type="radio"] {
-  display: none;
-}
 .iradio-wrap {
   display: inline-block;
   position: relative;
@@ -85,10 +82,11 @@ input[type="radio"] {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-  background: #7e7e7e;
-  background: -moz-linear-gradient(top, #7e7e7e 0%, #d0d0d0 100%);
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #7e7e7e), color-stop(100%, #d0d0d0));
+  background: rgba(126, 126, 126, 0.19999999999999996);
+  background: -moz-linear-gradient(top, rgba(126, 126, 126, 0.19999999999999996) 0%, rgba(208, 208, 208, 0.19999999999999996) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(126, 126, 126, 0.19999999999999996)), color-stop(100%, rgba(208, 208, 208, 0.19999999999999996)));
   -webkit-box-shadow: 0px 1px 0px #d0d0d0, 0px 2px 3px rgba(0, 0, 0, 0.3) inset;
+  border: 1px solid rgba(151, 151, 151, 0.4);
 }
 .iradio-wrap label {
   display: inline-block;
@@ -96,7 +94,7 @@ input[type="radio"] {
   text-align: center;
   color: #232323;
   text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.5);
-  width: 100px;
+  cursor: pointer;
 }
 .iradio-wrap .knob {
   background: #f7f7f7;
@@ -109,7 +107,10 @@ input[type="radio"] {
   -moz-border-radius: 4px;
   border-radius: 4px;
   top: 0;
-  width: 100px;
   border: 1px solid #868686;
   -webkit-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+}
+.iradio-wrap .knob span {
+  cursor: default;
+  -webkit-user-select: none;
 }
