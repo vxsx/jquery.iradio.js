@@ -3,9 +3,8 @@
 *  NO COPYRIGHTS, DO WHAT YOU WANT
 *  @requires jquery 1.4.4 or higher
 */
-//TODO: fix speed -- done
-//		do vertical
-//		drag'n'drop support
+//TODO: do vertical
+
 (function($){
     $.fn.iradio = function(options) {
         var settings = $.extend({
