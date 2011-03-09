@@ -13,6 +13,9 @@
 			draggable : true
         }, options);
 		
+		if (!($.ui && $.ui.draggable))
+			settings.draggable = false; //if we don't have jquery ui - we cannot drag things like that
+		
 		var inputs = $(this).hide(),
 			labelsSelector = inputs.map(function(i, el) {
 				return $('label[for="'+$(el).attr('id')+'"]').selector
@@ -26,8 +29,6 @@
 			labels = $('label', w),
 			maxWidth = Math.max.apply(labels, $(labels).map(function(i,e){ return $(e).width() }).get() ),
 			inputsCount = inputs.length;
-
-		
 			
 			labels.width(maxWidth);
 			knob.width(maxWidth);
@@ -66,11 +67,13 @@
 	        drag: function(event, ui) {
 				var currentStep =  parseInt((ui.position.left + knob.width() / 2) / step),
 					currentLabel = $(labels).eq(currentStep).text();
-				
+		
 				if (knobText.text() != currentLabel) 	
+				{
 					knobText.animate({'opacity':'0.2'},  25, 'linear',  function() {
 						$(this).text(currentLabel).animate({'opacity':'1'}, 25 , 'linear')
 					}); //don't know if this really needed
+				}
 			},
 			stop: function(event, ui) {
 				var currentStep =  parseInt((ui.position.left + knob.width() / 2) / step);
