@@ -129,7 +129,7 @@ fieldset {
 		display: inline-block;
 		padding: 5px 7px;
 		text-align: center;
-		color: #232323;
+		color: lighten(#232323, 20%);
 		text-shadow: 1px 1px 0px rgba(255,255,255,0.5);
 	//	width: 100px;
 		cursor: pointer;
@@ -148,7 +148,10 @@ fieldset {
 		
 		span {
 			cursor: default;
+			-moz-user-select: none; 
+			-khtml-user-select: none; 
 			-webkit-user-select: none;
+			user-select: none;
 		}
 	}
 }
