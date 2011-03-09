@@ -13,6 +13,9 @@
 			draggable : true
         }, options);
 		
+		if (!($.ui && $.ui.draggable))
+			settings.draggable = false; //if we don't have jquery ui - we cannot drag things like that
+		
 		var inputs = $(this).hide(),
 			labelsSelector = inputs.map(function(i, el) {
 				return $('label[for="'+$(el).attr('id')+'"]').selector
