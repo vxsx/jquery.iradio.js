@@ -122,12 +122,16 @@ fieldset {
 	.border-radius(5px);
 	.linear-gradient( fadeout(#7e7e7e, 80%), fadeout(#d0d0d0, 80%));
 
-	-webkit-box-shadow: 0px 1px 0px #d0d0d0, 0px 2px 3px rgba(0,0,0,0.3) inset;//TODO
+	-webkit-box-shadow: 0px 1px 0px #d0d0d0, 0px 2px 3px rgba(0,0,0,0.3) inset;
+	-moz-box-shadow: 0px 1px 0px #d0d0d0, 0px 2px 3px rgba(0,0,0,0.3) inset;
+	-o-shadow: 0px 1px 0px #d0d0d0, 0px 2px 3px rgba(0,0,0,0.3) inset;
+	box-shadow: 0px 1px 0px #d0d0d0, 0px 2px 3px rgba(0,0,0,0.3) inset;
+	
 	border: 1px solid fadeout(#979797, 60%);
 	
 	label {
 		display: inline-block;
-		padding: 5px 7px;
+		padding: 5px 10px;
 		text-align: center;
 		color: lighten(#232323, 20%);
 		text-shadow: 1px 1px 0px rgba(255,255,255,0.5);
@@ -137,7 +141,7 @@ fieldset {
 	
 	.knob {
 		.linear-gradient(#f7f7f7, #c0c0c0);	
-		padding: 4px 6px;
+		padding: 4px 9px;
 		text-align: center;
 		position: absolute;
 		.border-radius(4px);
