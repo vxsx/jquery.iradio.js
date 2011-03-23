@@ -14,6 +14,7 @@ Default options
 
 	draggable : true
 	duration  : 500
+    vertical  : false
 	
 Using:
 
