@@ -16,7 +16,12 @@
 		$(function() {
 			$(':radio[name="iradio"]').iradio().change(function(){
 				$('#inside .note').text($(this).val())
-			})
+            });
+
+            $(':radio[name="iradiov"]').iradio({vertical:true}).change(function(){
+				$('#vertical .note').text($(this).val())
+			});
+
 		})
 	</script>
 	
@@ -29,6 +34,16 @@
 		
 	<br><span class="note">One</span>		
 	</fieldset>
+
+	<fieldset id="vertical">
+		
+			<input type="radio" name="iradiov" id="radio1v" value="One" checked="checked" /> <label for="radio1v">One</label>
+			<input type="radio" name="iradiov" id="radio2v" value="Two" /> <label for="radio2v">Two</label>
+			<input type="radio" name="iradiov" id="radio3v" value="Three" /> <label for="radio3v">Three</label>
+		
+	<br><span class="note">One</span>		
+	</fieldset>
+
 
 </body>
 </html>

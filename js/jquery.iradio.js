@@ -3,13 +3,13 @@
 *  NO COPYRIGHTS, DO WHAT YOU WANT
 *  @requires jquery 1.4.4 or higher
 */
-//TODO: do vertical
 
 (function($){
     $.fn.iradio = function(options) {
         var settings = $.extend({
 			duration  : 500,
-			draggable : true
+			draggable : true,
+            vertical  : false
         }, options);
 		
 		if (!($.ui && $.ui.draggable))
@@ -20,7 +20,7 @@
 				return $('label[for="'+$(el).attr('id')+'"]').selector
 			}).get().join(', ');
 
-		$(inputs.selector + ', ' + labelsSelector).wrapAll('<div class="iradio-wrap"></div>');
+		$(inputs.selector + ', ' + labelsSelector).wrapAll('<div class="iradio-wrap'+ (settings.vertical ? ' iradio-vertical':'')+'"></div>');
 
 		var w = inputs.parent().append('<div class="knob"></div>'),
 			knob = $('.knob', w).append('<span>'+$('label[for="'+inputs.filter(':checked').attr('id')+'"]').text()+'</span>'),
@@ -29,11 +29,12 @@
 			maxWidth = Math.max.apply(labels, $(labels).map(function(i,e){ return $(e).width() }).get() ),
 			inputsCount = inputs.length;
 			
-			labels.width(maxWidth);
-			knob.width(maxWidth);
+		labels.width(maxWidth);
+		knob.width(maxWidth);
 
-		var wWidth = w.width(),
-			step = wWidth / inputsCount;
+		var wWidth  = w.width(),
+            wHeight = w.height(),
+			step = settings.vertical ? ( wHeight / inputsCount ) : ( wWidth / inputsCount );
 
 		//knob speed
 		for (var i = 0; i < labels.length; i++ ) {
@@ -54,19 +55,27 @@
 				knob.stop();
 				knobText.stop();
 			}
-			knob.animate({'left': checkedLabel.position().left}, cDuration, 'linear' )
+            if (settings.vertical) {
+                knob.animate({'top': checkedLabel.position().top}, cDuration, 'linear' )
+            } else {
+			    knob.animate({'left': checkedLabel.position().left}, cDuration, 'linear' )
+            }
 			knobText.animate({'opacity':'0.2'},  cDuration/2, 'linear',  function() {
 				$(this).text(checkedText).animate({'opacity':'1'}, cDuration/2 , 'linear')
 			})
+
 		});
-			
+		
+        var knobSize = settings.vertical ? knob.height() : knob.width(),
+            direction = settings.vertical ? 'top' : 'left';
+
 		settings.draggable && knob.draggable({
 	        containment: 'parent',
-	        axis: 'x',
+	        axis: ( settings.vertical ? 'y':'x' ),
 	        drag: function(event, ui) {
-				var currentStep =  parseInt((ui.position.left + knob.width() / 2) / step),
+                var currentStep =  parseInt(( ui.position[direction] + knobSize / 2) / step),
 					currentLabel = $(labels).eq(currentStep).text();
-		
+
 				if (knobText.text() != currentLabel) 	
 				{
 					knobText.animate({'opacity':'0.2'},  25, 'linear',  function() {
@@ -75,8 +84,12 @@
 				}
 			},
 			stop: function(event, ui) {
-				var currentStep =  parseInt((ui.position.left + knob.width() / 2) / step);
-				knob.animate({'left': currentStep*step}, 200, 'linear')
+                var currentStep =  parseInt(( ui.position[direction] + knobSize / 2) / step);
+				
+                settings.vertical ?
+                    knob.animate({ 'top' : currentStep*step}, 200, 'linear') :
+                    knob.animate({ 'left' : currentStep*step}, 200, 'linear');
+
 			}
 	    })
 	

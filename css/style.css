@@ -121,3 +121,6 @@ fieldset {
   -webkit-user-select: none;
   user-select: none;
 }
+.iradio-wrap.iradio-vertical label {
+  display: block;
+}
