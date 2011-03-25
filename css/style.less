@@ -8,8 +8,7 @@
 	background: @colortop;
 	background: -moz-linear-gradient(top, @colortop 0%, @colorbottom 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, @colortop), color-stop(100%, @colorbottom));
-	
-	
+	background: -o-linear-gradient(top, @colortop 0%, @colorbottom 100%);
 }
 
 * {
@@ -157,6 +156,13 @@ fieldset {
 			-webkit-user-select: none;
 			user-select: none;
 		}
+        &.ui-draggable-dragging, &:active {
+            -webkit-box-shadow: 0px 1px 0px #d5d5d5 inset;
+            -moz-box-shadow: 0px 1px 0px #d5d5d5 inset;
+            -o-box-shadow: 0px 1px 0px #d5d5d5 inset;
+            box-shadow: 0px 1px 0px #d5d5d5 inset;
+            .linear-gradient(#c0c0c0, #d5d5d5);	
+        }
 	}
 
     &.iradio-vertical {
