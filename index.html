@@ -1,48 +1,48 @@
 <!DOCTYPE HTML>
 <html lang="en-US">
 <head>
-	<meta charset="UTF-8">
-	<title>iradio</title>
-	<link rel="stylesheet" href="css/style.css" />
-	<script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
-	<script type="text/javascript" src="js/jquery-ui-1.8.9.custom.min.js"></script>
-	<script type="text/javascript" src="js/jquery.iradio.js"></script>
+    <meta charset="UTF-8">
+    <title>iradio</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script type="text/javascript" src="js/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.8.9.custom.min.js"></script>
+    <script type="text/javascript" src="js/jquery.iradio.js"></script>
 </head>
 <body>
-	<a href="http://github.com/vxsx/jquery.iradio.js" id="github"><span>Fork me on GitHub</span><span>Be nice!</span></a>
-	
-	
-	<script type="text/javascript">
-		$(function() {
-			$(':radio[name="iradio"]').iradio().change(function(){
-				$('#inside .note').text($(this).val())
+    <a href="http://github.com/vxsx/jquery.iradio.js" id="github"><span>Fork me on GitHub</span><span>Be nice!</span></a>
+
+
+    <script type="text/javascript">
+        $(function() {
+            $(':radio[name="iradio"]').iradio().change(function(){
+                $('#inside .note').text($(this).val())
             });
 
             $(':radio[name="iradiov"]').iradio({vertical:true}).change(function(){
-				$('#vertical .note').text($(this).val())
-			});
+                $('#vertical .note').text($(this).val())
+            });
 
-		})
-	</script>
-	
-	
-	<fieldset id="inside">
-		
-			<input type="radio" name="iradio" id="radio1" value="One" checked="checked" /> <label for="radio1">One</label>
-			<input type="radio" name="iradio" id="radio2" value="Two" /> <label for="radio2">Two</label>
-			<input type="radio" name="iradio" id="radio3" value="Three" /> <label for="radio3">Three</label>
-		
-	<br><span class="note">One</span>		
-	</fieldset>
+        })
+    </script>
 
-	<fieldset id="vertical">
-		
-			<input type="radio" name="iradiov" id="radio1v" value="One" checked="checked" /> <label for="radio1v">One</label>
-			<input type="radio" name="iradiov" id="radio2v" value="Two" /> <label for="radio2v">Two</label>
-			<input type="radio" name="iradiov" id="radio3v" value="Three" /> <label for="radio3v">Three</label>
-		
-	<br><span class="note">One</span>		
-	</fieldset>
+
+    <fieldset id="inside">
+
+            <input type="radio" name="iradio" id="radio1" value="One" checked="checked" /> <label for="radio1">One</label>
+            <input type="radio" name="iradio" id="radio2" value="Two" /> <label for="radio2">Two</label>
+            <input type="radio" name="iradio" id="radio3" value="Three" /> <label for="radio3">Three</label>
+
+    <br><span class="note">One</span>
+    </fieldset>
+
+    <fieldset id="vertical">
+
+            <input type="radio" name="iradiov" id="radio1v" value="One" checked="checked" /> <label for="radio1v">One</label>
+            <input type="radio" name="iradiov" id="radio2v" value="Two" /> <label for="radio2v">Two</label>
+            <input type="radio" name="iradiov" id="radio3v" value="Three" /> <label for="radio3v">Three</label>
+
+    <br><span class="note">One</span>
+    </fieldset>
 
 
 </body>
