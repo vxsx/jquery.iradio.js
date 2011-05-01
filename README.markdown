@@ -12,17 +12,20 @@ Optional
 
 Default options 
 
-	draggable : true
-	duration  : 500
-    vertical  : false
-	
+``` javascript
+draggable : true
+duration  : 500
+vertical  : false
+```
+
 Using:
 
-    <input type="radio" name="iradio" id="radio1" value="One" checked="checked" /> <label for="radio1">One</label>
-	<input type="radio" name="iradio" id="radio2" value="Two" /> <label for="radio2">Two</label>
-	<input type="radio" name="iradio" id="radio3" value="Three" /> <label for="radio3">Three</label>
+``` html
+<input type="radio" name="iradio" id="radio1" value="One" checked="checked" /> <label for="radio1">One</label>
+<input type="radio" name="iradio" id="radio2" value="Two" /> <label for="radio2">Two</label>
+<input type="radio" name="iradio" id="radio3" value="Three" /> <label for="radio3">Three</label>
 	
-	<script type="text/javascript">
-    	$(':radio[name="iradio"]').iradio();
-	</script>
-
+<script type="text/javascript">
+    $(':radio[name="iradio"]').iradio();
+</script>
+```
