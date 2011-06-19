@@ -85,11 +85,12 @@
 			},
 			stop: function(event, ui) {
                 var currentStep =  parseInt(( ui.position[direction] + knobSize / 2) / step);
-				
+
                 settings.vertical ?
                     knob.animate({ 'top' : currentStep*step}, 200, 'linear') :
                     knob.animate({ 'left' : currentStep*step}, 200, 'linear');
 
+                $(inputs[currentStep]).trigger('change');
 			}
 	    })
 	
