@@ -1,6 +1,6 @@
 #jquery.iradio.js
 
-Plugin that makes segmented control (like on Mac Os X Lion) from the set of radio buttons
+Plugin that makes segmented control (<del>like on Mac Os X Lion</del> They actually did implement it only in first few betas) from the set of radio buttons
   
 Requires  
 
